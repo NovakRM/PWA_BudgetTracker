@@ -1,5 +1,6 @@
 let transactions = [];
 let myChart;
+import { checkForIndexedDb, useIndexedDb } from "./indexedDb"
 
 fetch("/api/transaction")
   .then(response => {
@@ -151,3 +152,13 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
+function saveRecord(object){
+  let object = []
+  console.log(object)
+
+  if(checkForIndexedDb()){
+    useIndexedDb("budget", "transactionsStore", "put", object, __id)
+    //databaseName, storeName, method, object
+  }
+}
