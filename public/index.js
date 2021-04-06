@@ -1,4 +1,4 @@
-import {saveRecord} from "/db.js";
+import {saveRecord} from "/indexedDb.js";
 let transactions = [];
 let myChart;
 
